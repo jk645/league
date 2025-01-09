@@ -1,4 +1,15 @@
-﻿@page
+﻿@page "/Players/{playerid}"
 @model League.Pages.Players.PlayerModel
 @{
 }
+
+<div>
+	<a asp-page="/Players/Index">&laquo; Back to list</a>
+</div>
+<h1>Player: @Model.Player.Name</h1>
+<dl>
+	<dt>Height</dt>
+	<dd>@Model.Player.Height</dd>
+	<dt>Weight</dt>
+	<dd>@Model.Player.Weight</dd>
+</dl>
