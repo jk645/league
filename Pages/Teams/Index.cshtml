@@ -6,6 +6,8 @@
 <ul>
 	@foreach(var team in Model.Teams)
 	{
-		<li>@team.Name</li>
+		<li>
+			<a asp-page="./Team" asp-route-teamid="@team.TeamId">@team.Name</a>
+		</li>
 	}
 </ul>

@@ -1,4 +1,9 @@
-﻿@page
+﻿@page "/Teams/{teamid}"
 @model League.Pages.Teams.TeamModel
 @{
 }
+
+<div>
+	<a asp-page="/Teams/Index">&laquo; Back to list</a>
+</div>
+<h1>@Model.Team.Name</h1>
