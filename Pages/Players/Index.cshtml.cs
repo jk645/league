@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace League.Pages.Players
@@ -17,11 +18,22 @@ namespace League.Pages.Players
             _context = context;
         }
 
+        [BindProperty(SupportsGet = true)]
+        public string Search { get; set; }
+
         public List<Player> Players { get; set; }
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string search)
         {
-            Players = await _context.Players.ToListAsync();
+            IQueryable<Player> players = _context.Players.Select(p => p);
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                //Search = search;
+                players = players.Where(p => p.Name.Contains(search));
+            }
+
+            Players = await players.ToListAsync();
         }
     }
 }

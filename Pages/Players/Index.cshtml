@@ -3,6 +3,12 @@
 @{
 }
 
+<form>
+	<label asp-for="Search">Search</label>
+	<input asp-for="Search" />
+	<input type="submit" value="Search" />
+</form>
+
 <ul>
 	@foreach (var player in Model.Players)
 	{
