@@ -1,0 +1,11 @@
+﻿@page
+@model League.Pages.Teams.IndexModel
+@{
+}
+
+<ul>
+	@foreach(var team in Model.Teams)
+	{
+		<li>@team.Name</li>
+	}
+</ul>
